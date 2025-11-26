@@ -21,7 +21,7 @@ const Sidebar = ({onClick}:menuProps) => {
     });
 
     return (
-        <aside className="w-[306px] h-full bg-transparent rounded-br-lg  pt-5 px-6 overflow-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] relative border-r backdrop-blur-2xl lg:backdrop-blur-md shadow-lg">
+        <aside className="w-[346px] h-full bg-transparent rounded-br-lg  pt-5 px-6 overflow-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] relative border-r backdrop-blur-2xl lg:backdrop-blur-md shadow-lg">
             <Button 
                 variant="ghost" 
                 className="hover:bg-transparent lg:hidden absolute top-0 right-[-13px]"
