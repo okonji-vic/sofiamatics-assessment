@@ -43,6 +43,20 @@ export function HospitalTableFilters({ onSearch, searchValue }: TableFiltersProp
         </SelectTrigger>
         <SelectContent>
           <SelectItem value="nigeria">Nigeria</SelectItem>
+          <SelectItem value="ghana">Ghana</SelectItem>
+          <SelectItem value="kenya">Kenya</SelectItem>
+          <SelectItem value="south-africa">South Africa</SelectItem>
+          <SelectItem value="egypt">Egypt</SelectItem>
+          <SelectItem value="morocco">Morocco</SelectItem>
+          <SelectItem value="ethiopia">Ethiopia</SelectItem>
+          <SelectItem value="belgium">Belgium</SelectItem>
+          <SelectItem value="germany">Germany</SelectItem>
+          <SelectItem value="united-kingdom">United Kingdom</SelectItem>
+          <SelectItem value="canada">Canada</SelectItem>
+          <SelectItem value="brazil">Brazil</SelectItem>
+          <SelectItem value="united-states">United States</SelectItem>
+          
+          
         </SelectContent>
       </Select>
     </div>
