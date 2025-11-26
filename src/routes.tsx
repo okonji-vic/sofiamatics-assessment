@@ -11,7 +11,7 @@ const Dashboard = lazy(() => import("./pages/Dashboard"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 export const router = createBrowserRouter([
-    { path: "/", element: <Navigate to="/user/dashboard" replace /> },
+    { path: "/", element: <Navigate to="/user/hospitals" replace /> },
     {
         path: "/user",
         element: <AuthProtectedRoute />,
