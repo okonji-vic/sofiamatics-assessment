@@ -52,6 +52,7 @@ export function HospitalPagination({ currentPage, totalPages, onPageChange, isLo
             variant={currentPage === page ? "default" : "outline"}
             size="sm"
             disabled={isLoading}
+            // className={`${currentPage === page ? "bg-teal-400 text-white hover:bg-teal-700" : ""}`}
           >
             {page}
           </Button>
