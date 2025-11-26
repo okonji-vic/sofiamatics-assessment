@@ -204,7 +204,7 @@ export default function HospitalsPage() {
 
         {/* Content Area */}
         <div className="flex-1 overflow-y-auto">
-          <div className="p-6">
+          <div className="py-6">
             {error && (
               <Alert variant="destructive" className="mb-4">
                 <AlertCircle className="h-4 w-4" />

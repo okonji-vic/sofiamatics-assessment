@@ -9,8 +9,8 @@ interface HospitalTableProps {
 
 export function HospitalTable({ hospitals, onSelectHospital }: HospitalTableProps) {
   return (
-    <div className="min-w-full border rounded-lg overflow-hidden p-0">
-      <Table className="min-w-full">
+    <div className="border rounded-lg w-full m-0 overflow-hidden p-0">
+      <Table >
         <TableHeader>
           <TableRow className="border-b bg-muted/50">
             <TableHead className="font-semibold">Hospital Name</TableHead>

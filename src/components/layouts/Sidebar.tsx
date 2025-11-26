@@ -35,7 +35,6 @@ const Sidebar = ({onClick}:menuProps) => {
                         <img src={Logo} alt=" Sofiamatics logo" className="" />
                     </Link>
                 </div>
-                <span className=" pt-4">MAIN</span>
                 <NavLink to="dashboard" className={activeClass}>
                     <LayoutDashboard /> Dashboard
                 </NavLink>

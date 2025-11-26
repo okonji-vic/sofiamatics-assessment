@@ -37,7 +37,7 @@ export function HospitalPagination({ currentPage, totalPages, onPageChange, isLo
         size="sm"
       >
         <ChevronLeft className="h-4 w-4 mr-1" />
-        Prev
+    
       </Button>
 
       {getPages().map((page, i) =>
@@ -65,7 +65,7 @@ export function HospitalPagination({ currentPage, totalPages, onPageChange, isLo
         variant="outline"
         size="sm"
       >
-        Next
+    
         <ChevronRight className="h-4 w-4 ml-1" />
       </Button>
 
