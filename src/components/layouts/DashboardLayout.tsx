@@ -45,10 +45,12 @@ const DashboardLayout = () => {
             {/* Main Content */}
             <div className="flex-1 flex flex-col overflow-x-hidden" >
             
-                    <Header onMenuToggle={toggleSidebar} />
+                    {/* <Header onMenuToggle={toggleSidebar} /> */}
             
-                <main className="flex-1 p-0 sm:p-6 overflow-y-auto" onClick={closeSidebar}>
-                    <div className=" max-w-[1440px] mx-auto">
+                <main className="flex-1 p-4 sm:p-6 overflow-y-auto" >
+                    <Header onMenuToggle={toggleSidebar} />
+                    <div className=" max-w-[1640px] mx-auto" onClick={closeSidebar}>
+                        
                         <Outlet /> 
                     </div>
                 </main>
