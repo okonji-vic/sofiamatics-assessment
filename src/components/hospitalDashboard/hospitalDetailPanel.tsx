@@ -14,12 +14,13 @@ export function HospitalDetailPanel({ hospital, onClose }: DetailPanelProps) {
   return (
     <AnimatePresence>
       {hospital && (
+        // <div className="absolute inset-y-0 left-0  w-full bg-black bg-opacity-50 blur-sm  border border-green-500" >
         <motion.div
           initial={{ x: "100%" }}
           animate={{ x: 0 }}
           exit={{ x: "100%" }}
           transition={{ duration: 0.3 }}
-          className="absolute inset-y-0 right-0 w-full md:w-96 lg:w-[32rem] bg-background border-l border-border overflow-y-auto"
+          className="absolute inset-y-0 right-0 w-full md:w-96 lg:w-[32rem] bg-background border-l border-border overflow-y-auto z-100 "
         >
           {/* Header with Close Button */}
           <div className="sticky top-0 z-10 border-b bg-background p-6 flex items-start justify-between">
@@ -98,6 +99,7 @@ export function HospitalDetailPanel({ hospital, onClose }: DetailPanelProps) {
             </div>
           </div>
         </motion.div>
+        //  </div>
       )}
     </AnimatePresence>
   )
