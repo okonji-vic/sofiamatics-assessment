@@ -90,7 +90,7 @@ export default function HospitalsPage() {
 
             {isLoading ? (
               <div className="space-y-4">
-                {Array.from({ length: 5 }).map((_, i) => (
+                {Array.from({ length: 7 }).map((_, i) => (
                   <Skeleton key={i} className="h-12 w-full" />
                 ))}
               </div>

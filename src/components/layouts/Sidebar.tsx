@@ -16,7 +16,7 @@ const Sidebar = ({onClick}:menuProps) => {
 
     const activeClass= ({isActive}:{isActive: boolean}) =>
         clsx("flex gap-3 cursor-pointer px-4", {
-        "text-white bg-dark p-3 rounded-sm  ": isActive,
+        "text-white bg-dark p-3 rounded-none  ": isActive,
         "": !isActive,
     });
 
