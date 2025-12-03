@@ -85,7 +85,7 @@ export function HospitalDetailPanel({ hospital, onClose }: DetailPanelProps) {
                 </div>
                 <div>
                   <p className="text-muted-foreground">Address</p>
-                  <p className="font-medium">{hospital.address}</p>
+                  <p className="font-medium">{hospital.address ?? "N/A"}</p>
                 </div>
               </div>
             </div>

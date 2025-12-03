@@ -4,17 +4,19 @@ import { fetchHospitals } from "@/services/hospitalServices"
 import type { Hospital } from "@/types/hospital"
 import { HospitalTableFilters } from "@/components/hospitalDashboard/hospitalTableFilters"
 import { HospitalTable } from "@/components/hospitalDashboard/hospitalTable"
-import { HospitalDetailPanel } from "@/components/hospitalDashboard/hospitalDetailPanel"
+// import { HospitalDetailPanel } from "@/components/hospitalDashboard/hospitalDetailPanel"
 import { HospitalPagination } from "@/components/hospitalDashboard/hospitalPagination"
 import { Skeleton } from "@/components/ui/skeleton"
 import { Alert, AlertDescription } from "@/components/ui/alert"
 import { AlertCircle, Info } from "lucide-react"
-// import Header from "@/components/layouts/Header"
+import { HospitalDetailDialog } from "@/components/hospitalDashboard/hospitalDetailDialog"
+
 
 export default function HospitalsPage() {
   const [page, setPage] = useState(1)
   const [search, setSearch] = useState("")
   const [selectedHospital, setSelectedHospital] = useState<Hospital | null>(null)
+  const [detailOpen, setDetailOpen] = useState(false)
 
   const queryParams = useMemo(
     () => ({
@@ -40,6 +42,7 @@ export default function HospitalsPage() {
 
   const handleSelectHospital = useCallback((hospital: Hospital) => {
     setSelectedHospital(hospital)
+    setDetailOpen(true)
   }, [])
 
   const handlePageChange = useCallback((p: number) => {
@@ -111,7 +114,8 @@ export default function HospitalsPage() {
         </div>
       </main>
 
-      <HospitalDetailPanel hospital={selectedHospital} onClose={() => setSelectedHospital(null)} />
+        {/* <HospitalDetailPanel hospital={selectedHospital} onClose={() => setSelectedHospital(null)} /> */}
+        <HospitalDetailDialog hospital={selectedHospital} isOpen={detailOpen} onClose={() => setDetailOpen(false)} />
     </div>
     </>
   )

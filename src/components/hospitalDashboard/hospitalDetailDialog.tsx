@@ -1,8 +1,8 @@
 import type { Hospital } from "@/types/hospital"
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog"
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 import { Badge } from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
-import { MapPin, Phone, Globe } from "lucide-react"
+import { MapPin, Phone, Mail } from "lucide-react"
 
 interface HospitalDetailDialogProps {
   hospital: Hospital | null
@@ -15,9 +15,11 @@ export function HospitalDetailDialog({ hospital, isOpen, onClose }: HospitalDeta
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
-        <DialogHeader>
-          <div className="flex gap-4 items-start">
+      <DialogContent className="max-w-lg max-h-[100vh] overflow-y-auto">
+        <DialogHeader
+          // className="sticky top-0 z-10 bg-background"
+        >
+          <div className="gap-4 flex flex-col items-start justify-between">
             {hospital.logoUrl && (
               <img
                 src={hospital.logoUrl || "/placeholder.svg"}
@@ -25,61 +27,76 @@ export function HospitalDetailDialog({ hospital, isOpen, onClose }: HospitalDeta
                 className="h-16 w-16 rounded-lg object-cover"
               />
             )}
+    
+            {/* Header with Close Button */}
+          
             <div>
-              <DialogTitle>{hospital.hospitalName}</DialogTitle>
-              <DialogDescription>{hospital.address}</DialogDescription>
-              <div className="flex gap-2 mt-3">
-                <Badge>{hospital.type}</Badge>
-                <Badge variant="outline">{hospital.state}</Badge>
+                {/* <h2 className="text-xl font-bold">{hospital.hospitalName ?? "N/A"}</h2> */}
+                <DialogTitle className="text-xl font-bold">{hospital.hospitalName ?? "N/A"}</DialogTitle>
+            </div>
+            <div>
+              <div className="flex gap-4 mb-4">
+                <a href={`tel:${hospital.phoneNumber}`} className="flex items-center gap-2 text-sm hover:text-primary">
+                  <Phone className="h-4 w-4" />
+                  <span>{hospital.phoneNumber ?? "No phone number"}</span>
+                </a>
+                <a
+                  href={`mailto:${hospital.hospitalEmail}`}
+                  className="flex items-center gap-2 text-sm hover:text-primary text-blue-500"
+                >
+                  <Mail className="h-4 w-4" />
+                  <span>{hospital.hospitalEmail ?? "No email"}</span>
+                </a>
               </div>
             </div>
+            
           </div>
         </DialogHeader>
         <Separator />
-        <div className="space-y-4">
-          <div>
-            <h3 className="font-semibold mb-2 flex items-center gap-2">
-              <Phone className="h-4 w-4" />
-              Contact
-            </h3>
-            <div className="space-y-1 text-sm">
-              <p>
-                Phone:{" "}
-                <a href={`tel:${hospital.phoneNumber}`} className="hover:underline">
-                  {hospital.phoneNumber}
-                </a>
-              </p>
-              <p>
-                Email:{" "}
-                <a href={`mailto:${hospital.hospitalEmail}`} className="hover:underline">
-                  {hospital.hospitalEmail}
-                </a>
-              </p>
+        <div className="space-y-6">
+        {/* Overview Section */}
+            <div className="mt-4">
+              <h3 className="font-semibold mb-4">Overview</h3>
+              <div className="bg-muted p-4 rounded-lg space-y-3 text-sm">
+                <div>
+                  <p className="text-muted-foreground text-xs uppercase">Longitude</p>
+                  <p className="font-mono">{hospital.longitude.toFixed(4)}° N</p>
+                </div>
+                <div>
+                  <p className="text-muted-foreground text-xs uppercase">Latitude</p>
+                  <p className="font-mono">{hospital.latitude.toFixed(4)}° E</p>
+                </div>
+              </div>
             </div>
-          </div>
-          <Separator />
-          <div>
-            <h3 className="font-semibold mb-2 flex items-center gap-2">
-              <MapPin className="h-4 w-4" />
-              Location
-            </h3>
-            <div className="space-y-1 text-sm">
-              <p>Address: {hospital.address}</p>
-              <p>State: {hospital.state}</p>
-              <p>Country: {hospital.country}</p>
-              {hospital.formattedDistance && <p>Distance: {hospital.formattedDistance}</p>}
+
+            {/* Location Section */}
+            <div>
+              <h3 className="font-semibold mb-4 flex items-center gap-2">
+                <MapPin className="h-4 w-4" />
+                Location
+              </h3>
+              <div className="space-y-3 text-sm">
+                <div>
+                  <p className="text-muted-foreground">Country</p>
+                  <p className="font-medium">{hospital.country}</p>
+                </div>
+                <div>
+                  <p className="text-muted-foreground">State</p>
+                  <p className="font-medium">{hospital.state}</p>
+                </div>
+                <div>
+                  <p className="text-muted-foreground">Address</p>
+                  <p className="font-medium">{hospital.address ?? "No address available"}</p>
+                </div>
+              </div>
             </div>
-          </div>
-          <Separator />
-          <div>
-            <h3 className="font-semibold mb-2 flex items-center gap-2">
-              <Globe className="h-4 w-4" />
-              Coordinates
-            </h3>
-            <div className="space-y-1 text-sm font-mono text-xs bg-muted p-2 rounded">
-              <p>Lat: {hospital.latitude.toFixed(6)}</p>
-              <p>Long: {hospital.longitude.toFixed(6)}</p>
-            </div>
+
+            <Separator />
+
+            {/* Additional Info */}
+            <div>
+              <h3 className="font-semibold mb-2">Hospital Type</h3>
+              <Badge className="bg-primary/10 text-primary hover:bg-primary/20">{hospital.type}</Badge>
           </div>
         </div>
       </DialogContent>
